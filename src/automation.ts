@@ -92,7 +92,7 @@ const processString = (inputStr: string): string => {
                     const parentElement = parentElementHandle as ElementHandle;
                     text = await parentElement?.innerText();
                 } else {
-                    text = (await element.getAttribute('value')) || '';
+                    text = (await element.getAttribute('value')) ?? '';
                 }
 
                 const option: Option = { answer: text, conditionalQuestions: [] };
