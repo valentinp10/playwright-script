@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npx playwright install && npm install",
     "start": "ts-node src/automation.ts"
   },
   "keywords": [],
