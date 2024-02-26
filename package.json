@@ -1,19 +1,32 @@
 {
-  "name": "playwright-script",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "npx playwright install && npm install",
-    "start": "ts-node src/automation.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "playwright": "^1.41.2",
-    "prettier": "^3.2.5",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
-  }
+    "name": "playwright-script",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "npx playwright install && npm install",
+        "start": "ts-node src/automation.ts",
+        "clean": "rm -rf out *.tsbuildinfo",
+        "compile": "npm run clean && tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/mocha": "^10.0.1",
+        "@types/node": "^20.2.0",
+        "@types/supertest": "^2.0.12",
+        "@ubio/eslint-config": "^1.4.4",
+        "eslint": "^8.57.0",
+        "mocha": "^10.2.0",
+        "pre-commit": "^1.2.2",
+        "supertest": "^6.3.3",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "playwright": "^1.41.2",
+        "prettier": "^3.2.5",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
 }
