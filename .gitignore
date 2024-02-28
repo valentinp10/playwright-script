@@ -1,16 +1,2 @@
 images/
 node_modules/
-*.log
-yarn.lock
-.eslintcache
-.DS_Store
-.idea/
-static/build
-out/
-
-.env*
-!.env.example
-!.env.test
-
-.tmp*
-plaintext.*

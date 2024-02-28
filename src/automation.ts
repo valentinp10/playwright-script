@@ -1,5 +1,5 @@
 import { chromium, Browser, Page, ElementHandle } from 'playwright';
-
+import 'dotenv/config'
 interface Option {
     answer: string;
     conditionalQuestions: [];
@@ -35,7 +35,10 @@ const processString = (inputStr: string): string => {
 
 (async () => {
     let dynamicQuestions: DynamicQuestion[] = [];
-    const browser: Browser = await chromium.launch();
+    const browser: Browser = await chromium.launch({
+        headless: false,
+        executablePath: process.env.BROWSER_PATH
+    });
     const context = await browser.newContext();
     const page: Page = await context.newPage();
     await page.goto('https://click.appcast.io/track/ggfh5st?cs=itl&exch=ia&jg=6o0l&bid=7g-BOD3yIyJl4P4ikp9YSg==');

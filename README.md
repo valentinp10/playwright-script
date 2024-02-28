@@ -1,5 +1,7 @@
-Clone the repo and run
+1. Clone the repo and run
 
-- run `npm run build` to install playwright and the required dependecies
+2. Open `.env` file and add you browser path
 
-- run `npm run start` to start the automation
+3. run `npm install` to install the required dependecies
+
+4. run `npm run start` to start the automation
