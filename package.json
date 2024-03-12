@@ -1,16 +1,16 @@
 {
   "name": "playwright-script",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx playwright install && npm install",
     "start": "ts-node src/automation.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "playwright": "^1.41.2",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",

@@ -1,5 +1,5 @@
 import { chromium, Browser, Page, ElementHandle } from 'playwright';
-
+import 'dotenv/config';
 interface Option {
     answer: string;
     conditionalQuestions: [];
@@ -35,14 +35,11 @@ const processString = (inputStr: string): string => {
 
 (async () => {
     let dynamicQuestions: DynamicQuestion[] = [];
-    const browser: Browser = await chromium.launch();
-    const context = await browser.newContext();
+    const browser = await chromium.connectOverCDP(`http://localhost:${process.env.PORT}`);
+    const context = browser.contexts()[0];
     const page: Page = await context.newPage();
     await page.goto('https://click.appcast.io/track/ggfh5st?cs=itl&exch=ia&jg=6o0l&bid=7g-BOD3yIyJl4P4ikp9YSg==');
     await page.screenshot({ path: 'images/open-page.png' });
-
-    await page.waitForSelector('.cky-notice-btn-wrapper button.cky-btn-reject', { timeout: 30000 });
-    await page.locator('.cky-notice-btn-wrapper button.cky-btn-reject').click()
 
     try {
         await page.waitForSelector('input#name', { timeout: 100 });
@@ -108,7 +105,7 @@ const processString = (inputStr: string): string => {
         }
         dynamicQuestions.push(dynamicQuestion);
     }
-    await page.locator('#work_as_per_diem_no').click()
+    await page.locator('#work_as_per_diem_no').click();
 
     console.log(JSON.stringify(dynamicQuestions));
     console.log(dynamicQuestions);
